@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { toast } from "react-hot-toast";
 import { Link } from "react-router-dom";
 import { contextProvider } from "../Providers/AuthProvider";
 
@@ -8,11 +9,11 @@ const LogIn = () => {
     const {user, logIn} = useContext(contextProvider);
 
     function handleLogInSubmit (e) {
-        e.preventDefault();
+        e.preventDefault(); 
         const email = e.target.email.value;
         const password = e.target.password.value;
         logIn(email, password)
-        .then(result => {toast.success('Registration Successful'); e.target.reset()})
+        .then(result => {toast.success('LogIn Successful'); e.target.reset()})
         .catch(err => {toast.error(err.message.slice(22, -2).replace(/-/g,' '))});
     }
 

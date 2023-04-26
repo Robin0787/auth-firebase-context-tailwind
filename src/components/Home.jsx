@@ -1,11 +1,8 @@
-import { useContext } from "react";
-import { contextProvider } from "../Providers/AuthProvider";
 
 const Home = () => {
-    const {user} = useContext(contextProvider);
     return (
-        <div>
-            <h1>This is Home {user && <span>{user.name}</span>}</h1>
+        <div className="text-4xl text-center h-[80vh] flex justify-center items-center">
+            <h1>This is Home Component</h1>
         </div>
     );
 };

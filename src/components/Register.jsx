@@ -1,3 +1,4 @@
+import { updateProfile } from "firebase/auth";
 import { useContext } from "react";
 import toast from 'react-hot-toast';
 import { Link } from "react-router-dom";
@@ -5,14 +6,17 @@ import { contextProvider } from "../Providers/AuthProvider";
 const Register = () => {
     const {user, createUser} = useContext(contextProvider);
 
-    console.log(user);
     function handleLogInSubmit (e) {
         e.preventDefault();
         const name = e.target.name.value;
         const email = e.target.email.value;
         const password = e.target.password.value;
         createUser(email,password)
-        .then(res => {toast.success('Registration Successful');e.target.reset()})
+        .then(res => {
+            toast.success('Registration Successful');
+            updateProfile(res.user, {displayName: name})
+            e.target.reset();
+        })
         .catch(err => {toast.error(err.message.slice(22,-2).replace(/-/g,' '))});
     }
 
