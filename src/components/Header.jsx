@@ -9,7 +9,7 @@ const Header = () => {
     console.log(user);
     const listenLogOut = () => {
         logOut()
-        .then(res => {toast.success('Logged Out')})
+        .then(() => {toast.success('Logged Out')})
         .catch(err => {toast.error(err.message).slice(22,-2).replace(/-/g,' ')});
     }
 

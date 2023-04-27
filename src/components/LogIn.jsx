@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { toast } from "react-hot-toast";
 import { Link } from "react-router-dom";
 import { contextProvider } from "../Providers/AuthProvider";
+import SignInWIthGoogle from "./SignInWIthGoogle";
 
 
 const LogIn = () => {
@@ -18,7 +19,7 @@ const LogIn = () => {
     }
 
     return (
-        <div className="hero min-h-full mt-10 bg-base-200 py-10">
+        <div className="hero min-h-full my-10 bg-base-200 py-10">
             <div className="hero-content flex-col md:flex-row">
                 <div className="text-center lg:text-left md:w-1/2">
                     <h1 className="text-4xl lg:text-5xl font-bold">Login now!</h1>
@@ -45,6 +46,7 @@ const LogIn = () => {
                             <button className="btn btn-primary">Login</button>
                             <Link to={'/register'} className="text-sm mt-2">New Here? <span className="text-blue-500">Register</span></Link>
                         </div>
+                        <SignInWIthGoogle />
                     </form>
                 </div>
             </div>

@@ -3,8 +3,9 @@ import { useContext } from "react";
 import toast from 'react-hot-toast';
 import { Link } from "react-router-dom";
 import { contextProvider } from "../Providers/AuthProvider";
+import SignInWIthGoogle from "./SignInWIthGoogle";
 const Register = () => {
-    const {user, createUser} = useContext(contextProvider);
+    const {createUser} = useContext(contextProvider);
 
     function handleLogInSubmit (e) {
         e.preventDefault();
@@ -21,7 +22,7 @@ const Register = () => {
     }
 
     return (
-        <div className="hero min-h-full mt-10 bg-base-200 py-10">
+        <div className="hero min-h-full my-10 bg-base-200 py-10">
             <div className="hero-content flex-col md:flex-row">
                 <div className="text-center lg:text-left md:w-1/2">
                     <h1 className="text-4xl lg:text-5xl font-bold">Register now!</h1>
@@ -51,6 +52,7 @@ const Register = () => {
                             <button className="btn btn-primary">Register</button>
                             <Link to={'/logIn'} className="text-sm mt-2">Already have an account? <span className="text-blue-500">LogIn</span></Link>
                         </div>
+                        <SignInWIthGoogle />
                     </form>
                 </div>
             </div>
