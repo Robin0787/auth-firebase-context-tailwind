@@ -22,13 +22,11 @@ const AuthProvider = ({children}) => {
     }
 
     useEffect(() => {
-        const instance = onAuthStateChanged(auth, (user) => {
+        const unsubscribe= onAuthStateChanged(auth, (user) => {
             setUser(user);
             setLoading(false);
-        })
-        return () => {
-            unsubscribe(instance);
-        }
+        });
+        return () => unsubscribe();
     }, []);
 
     const authInfo = {user, setUser, loading, createUser, logIn, signInWith, logOut};
